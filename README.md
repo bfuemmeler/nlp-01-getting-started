@@ -131,3 +131,21 @@ git push -u origin main
 ## Example Artifact (Output)
 
 ![Word Cloud Example](docs/images/word_cloud_example.png)
+
+## Technical Modification
+
+Remove Stopwords (such as "the", "this", "that", etc to show more interesting words in the final run)
+
+In Section 5: change code to define stopwords & remove them
+
+# Define stopwords
+stopwords = {"the", "and", "of", "to", "in", "for", "on", "with", "is", "that"}
+
+# Remove punctuation, short tokens, and stopwords
+clean_words = [
+    w.strip(".,:;!?()[]\"'")
+    for w in words
+    if len(w) > 3 and w not in stopwords
+]
+
+print(clean_words[:20])
